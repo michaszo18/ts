@@ -1,5 +1,5 @@
-import {TodoItem} from "./TodoItem";
-import {TodoCollection} from "./TodoCollection";
+import { TodoItem } from "./TodoItem";
+import { TodoCollection } from "./TodoCollection";
 
 let todos = [
   new TodoItem(1, 'Clean room'),
@@ -11,10 +11,6 @@ let collection = new TodoCollection('Mike', todos);
 
 console.clear();
 console.log(`${collection.userName} Todo list`);
+console.log(`Liczba zadań do wykonania ${collection.getItemCounts().incomplete}/${collection.getItemCounts().total}`);
 
-let newId = collection.addTodo('Learn TS');
-let todoItem = collection.getTodoById(newId);
-collection.toggleComplete(1);
-collection.toggleComplete(2);
-collection.toggleComplete(1);
-console.log(JSON.stringify(collection));
+collection.getTodoItems(true).forEach(item => item.toString());

@@ -10,9 +10,5 @@ let todos = [
 let collection = new TodoCollection_1.TodoCollection('Mike', todos);
 console.clear();
 console.log(`${collection.userName} Todo list`);
-let newId = collection.addTodo('Learn TS');
-let todoItem = collection.getTodoById(newId);
-collection.toggleComplete(1);
-collection.toggleComplete(2);
-collection.toggleComplete(1);
-console.log(JSON.stringify(collection));
+console.log(`Liczba zadań do wykonania ${collection.getItemCounts().incomplete}/${collection.getItemCounts().total}`);
+collection.getTodoItems(true).forEach(item => item.toString());
